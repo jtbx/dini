@@ -102,14 +102,11 @@ struct IniSection
      *
      * Returns:
      *  Key value
-     *
-     * Throws:
-     *  IniException if key does not exists
      */
     public string getKey(string name)
     {
         if(!hasKey(name)) {
-            throw new IniException("Key '"~name~"' does not exists");
+            return "";
         }
         
         return _keys[name];
@@ -179,7 +176,7 @@ struct IniSection
                 return section;
         }
         
-        throw new IniException("Section '"~name~"' does not exists");
+        throw new IniException("Section '"~name~"' does not exist");
     }
     
     
